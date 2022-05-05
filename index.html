@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="bg-gray-600">
+    <div class="main-container mx-4 md:w-3/5 bg-white text-center md:mx-auto rounded-md shadow-lg">
+        <header class="h-60 mx-auto bg-amber-700 rounded-t-lg mt-4 relative">
+            <div class="fecha text-gray-100 text-3xl absolute top-5 left-4 lg:bottom-10 lg:left-7 font-sans font-semibold"
+                id="fecha">
+                03/05/2022
+            </div>
+        </header>
+
+        <main class="px-4 py-8 w-4/5 p-10 mx-auto">
+            <div class="tarea-wrapper flex items-center justify-center">
+                <input class="border border-blue-600 focus:outline-none
+                focus:border-sky-500 focus:ring-1 focus:ring-sky-500 w-5/6" 
+                type="text" 
+                name="tarea" 
+                id="tarea"
+                placeholder="Escribe o agrega una tarea">
+                <button id="btnAdd" type="submit" class="ml-2 w-auto bg-gray-500 py-1 px-2 rounded-md">
+                    agregar
+                </button>
+
+            </div>
+
+            <div class="lista-wrapper flex items-center justify-start mt-4 px-1
+            md:px-8 lg:px-12 x1:px-14">
+            <ul id="lista">
+                <button type="submit" data-task="check" class="bg-sky-500 py-2 px-2">
+                    check
+                </button>
+
+                <button type="submit" data-task="remove" class="bg-sky-500 py-2 px-2">
+                    remove
+                </button>
+            </ul>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js" type="text/javascript"></script>
+</body>
+
+</html>

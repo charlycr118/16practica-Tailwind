@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo:Alpine</title>
+    <script defer src="./js/alpine.js"></script>
+    <script
+      src="https://kit.fontawesome.com/2cfd232aa7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body class="bg-gray-50">
+    <div
+      class="main-container mx-4 md:w-3/5 bg-white text-center md:mx-auto rounded-md shadow-lg"
+    >
+      <header class="h-60 mx-auto bg-amber-700 rounded-t-lg mt-4 relative">
+        <h2
+          class="fecha text-gray-100 text-3xl absolute top-5 left-4 lg:bottom-10 lg:left-7 font-sans font-semibold"
+          id="fecha"
+        ></h2>
+      </header>
+      <main x-data="todoApp" class="px-4 py-8 w-4/5 p-10 mx-auto">
+        <div class="tarea-wrapper flex items-center justify-center">
+          <input
+            class="border border-blue-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 w-5/6"
+            type="text"
+            name="tarea"
+            id="tarea"
+            x-model="userInput"
+          />
+          <button
+            x-on:click="addTask()"
+            id="btnAdd"
+            type="submit"
+            class="ml-2 w-auto"
+          >
+            <svg
+              class="fill-current w-6 h-6 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 2H8C4.691 2 2 4.691 2 8v13a1 1 0 0 0 1 1h13c3.309 0 6-2.691 6-6V8c0-3.309-2.691-6-6-6zm1 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="lista-wrapper flex items-center justify-start mt-4 px-1 md:px-8 lg:px-12 xl:px-14"
+        >
+          <ul class="lista w-full" id="lista">
+            <template x-for="(todo, index) in todos">
+              <li class="flex items-center">
+                <p
+                  class="w-3/5 text-left"
+                  x-text="todo.name"
+                  :class="todo.completed ? 'line-through':''"
+                ></p>
+                <i
+                  class="fas fa-check mr-2"
+                  x-on:click="checkTask(event, index)"
+                ></i>
+                <i class="fas fa-trash" x-on:click="removeTask(todo)"></i>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </main>
+      <footer></footer>
+
+      <script src="./js/main.js"></script>
+      <script src="./js/todo.js"></script>
+    </div>
+  </body>
+</html>
